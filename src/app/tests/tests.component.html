@@ -1,32 +1,4 @@
 <h2>TP gained:</h2>
 <ul class="tests">
-  <li class="one-test">
-    <div (click)="toggleExpanded()" class="test-header">
-      <img class="img-test-icon" src="assets\images\tests\Worship_Test_Icons_Astro_Alignment.png"/>
-      <span class="test-title">Astrological Alignment</span>
-      <span class="test-points">3/7</span>
-    </div>
-    <ul [@bodyExpansion]="expanded ? 'expanded' : 'collapsed'" class="test-tasks">
-      <li>Found 5 aligned people
-        <input type="checkbox" checked="checked"/>
-        <span class="checkmark"></span>
-      </li>
-      <li>Found 15 aligned people
-        <input type="checkbox"/>
-        <span class="checkmark"></span>
-      </li>
-      <li>Found 30 aligned people
-        <input type="checkbox"/>
-        <span class="checkmark"></span>
-      </li>
-      <li>Found 45 aligned people
-        <input type="checkbox"/>
-        <span class="checkmark"></span>
-      </li>
-      <li>Completed ritual
-        <input type="checkbox"/>
-        <span class="checkmark"></span>
-      </li>
-    </ul>
-  </li>
+  <app-test-detail *ngFor="let testData of tests" [testData]="testData"></app-test-detail>
 </ul>

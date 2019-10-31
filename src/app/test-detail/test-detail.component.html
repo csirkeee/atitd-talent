@@ -1,0 +1,13 @@
+<li class="one-test">
+  <div (click)="toggleExpanded()" class="test-header">
+    <img class="img-test-icon" [src]="testData.imageLocation"/>
+    <span class="test-title">{{testData.name}}</span>
+    <span class="test-points">3/7</span>
+  </div>
+  <ul [@bodyExpansion]="expanded ? 'expanded' : 'collapsed'" class="test-tasks">
+    <li *ngFor="let task of testData.tasks">{{task.text}}
+      <input type="checkbox" checked="checked"/>
+      <span class="checkmark"></span>
+    </li>
+  </ul>
+</li>

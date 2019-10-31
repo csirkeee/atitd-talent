@@ -1,11 +1,12 @@
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from "./app.component";
 import { SpecializationsComponent } from "./specializations/specializations.component";
 import { StatsComponent } from "./stats/stats.component";
+import { TestDetailComponent } from "./test-detail/test-detail.component";
 import { TestsComponent } from "./tests/tests.component";
 
 @NgModule({
@@ -14,6 +15,7 @@ import { TestsComponent } from "./tests/tests.component";
     TestsComponent,
     SpecializationsComponent,
     StatsComponent,
+    TestDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,8 @@
       "object-literal-sort-keys": false,
       "no-console": false,
       "no-empty": false,
-      "linebreak-style": [true, "CRLF"]
+      "linebreak-style": [true, "CRLF"],
+      "max-classes-per-file": false,
+      "whitespace": [true, "check-module"]
   }
 }
