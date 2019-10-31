@@ -2,11 +2,11 @@
   <div (click)="toggleExpanded()" class="test-header">
     <img class="img-test-icon" [src]="testData.imageLocation"/>
     <span class="test-title">{{testData.name}}</span>
-    <span class="test-points">3/7</span>
+    <span class="test-points">{{gotTp}}/{{availableTp}}</span>
   </div>
   <ul [@bodyExpansion]="expanded ? 'expanded' : 'collapsed'" class="test-tasks">
-    <li *ngFor="let task of testData.tasks">{{task.text}}
-      <input type="checkbox" checked="checked"/>
+    <li *ngFor="let task of testData.tasks" (click)="onCheck(task)">{{task.text}}
+      <input type="checkbox" [checked]="checked.has(task.id)"/>
       <span class="checkmark"></span>
     </li>
   </ul>
