@@ -18,12 +18,12 @@ import { TaskData, TestData } from "../tests/test-data";
 export class TestDetailComponent implements OnInit {
   @Input() public testData: TestData;
 
-  private expanded = false;
+  public expanded = false;
 
-  private checked = new Set();
+  public checked = new Set();
 
-  private gotTp = 0;
-  private availableTp = 0;
+  public gotTp = 0;
+  public availableTp = 0;
 
   constructor() { }
 
@@ -31,11 +31,11 @@ export class TestDetailComponent implements OnInit {
     this.recalculate();
   }
 
-  private toggleExpanded() {
+  public toggleExpanded() {
     this.expanded = !this.expanded;
   }
 
-  private onCheck(task: TaskData) {
+  public onCheck(task: TaskData) {
     if(this.checked.has(task.id)) {
       this.checked.delete(task.id);
     } else {

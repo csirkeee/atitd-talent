@@ -8,7 +8,7 @@ import { TestData } from "./test-data";
   styleUrls: ["./tests.component.css"],
 })
 export class TestsComponent implements OnInit {
-  private tests: TestData[];
+  public tests: TestData[];
 
   constructor(private gameDataService: GameDataService) { }
 
