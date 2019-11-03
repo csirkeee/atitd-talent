@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { Component, Input, OnInit } from "@angular/core";
+import { PlayerDataService } from "../player-data.service";
 import { TaskData, TestData } from "../tests/test-data";
 
 @Component({
@@ -20,15 +21,18 @@ export class TestDetailComponent implements OnInit {
 
   public expanded = false;
 
-  public checked = new Set();
+  public checked = new Set<string>();
 
   public gotTp = 0;
   public availableTp = 0;
 
-  constructor() { }
+  constructor(private playerDataService: PlayerDataService) { }
 
   public ngOnInit() {
-    this.recalculate();
+    this.playerDataService.getPass(this.testData.id).subscribe((passes) => {
+      passes.forEach((pass) => this.checked.add(pass));
+      this.recalculate();
+    });
   }
 
   public toggleExpanded() {
@@ -42,6 +46,8 @@ export class TestDetailComponent implements OnInit {
       this.checked.add(task.id);
     }
     this.recalculate();
+
+    this.playerDataService.setPass(this.testData.id, Array.from(this.checked.values()));
   }
 
   private recalculate() {

@@ -3,6 +3,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+import { StorageModule } from "@ngx-pwa/local-storage";
 import { AppComponent } from "./app.component";
 import { SpecializationsComponent } from "./specializations/specializations.component";
 import { StatsComponent } from "./stats/stats.component";
@@ -21,6 +22,7 @@ import { TestsComponent } from "./tests/tests.component";
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    StorageModule.forRoot({ IDBNoWrap: true }),
   ],
   providers: [],
   bootstrap: [AppComponent],
