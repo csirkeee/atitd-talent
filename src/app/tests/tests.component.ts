@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { GameDataService } from "../game-data.service";
+import { TpPointsService } from "../tp-points.service";
 import { TestData } from "./test-data";
 
 @Component({
@@ -10,7 +11,7 @@ import { TestData } from "./test-data";
 export class TestsComponent implements OnInit {
   public tests: TestData[];
 
-  constructor(private gameDataService: GameDataService) { }
+  constructor(private gameDataService: GameDataService, private tpPointsService: TpPointsService) { }
 
   public ngOnInit() {
     this.gameDataService.getTests()

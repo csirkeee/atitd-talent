@@ -59,7 +59,6 @@ export class PlayerDataService {
           passedTasks,
         });
       }
-      console.log(JSON.stringify(data));
       this.dataToSave.next(data);
     }).unsubscribe();
   }

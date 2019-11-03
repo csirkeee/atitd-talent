@@ -2,6 +2,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 import { Component, Input, OnInit } from "@angular/core";
 import { PlayerDataService } from "../player-data.service";
 import { TaskData, TestData } from "../tests/test-data";
+import { TpPointsService } from "../tp-points.service";
 
 @Component({
   selector: "app-test-detail",
@@ -26,7 +27,7 @@ export class TestDetailComponent implements OnInit {
   public gotTp = 0;
   public availableTp = 0;
 
-  constructor(private playerDataService: PlayerDataService) { }
+  constructor(private playerDataService: PlayerDataService, private tpPointsService: TpPointsService) { }
 
   public ngOnInit() {
     this.playerDataService.getPass(this.testData.id).subscribe((passes) => {
@@ -61,5 +62,6 @@ export class TestDetailComponent implements OnInit {
     }
     this.gotTp = gotTpCalc;
     this.availableTp = availableTpCalc;
+    this.tpPointsService.setTestPoints(this.testData.id, this.gotTp);
   }
 }
