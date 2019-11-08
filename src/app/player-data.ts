@@ -3,6 +3,12 @@ export class TestPass {
   public passedTasks: string[];
 }
 
+export class SelectedSpecialization {
+  public id: string;
+  public level: number;
+}
+
 export class PlayerData {
-  public passes: TestPass[];
+  public passes: TestPass[] = [];
+  public levels: SelectedSpecialization[] = [{id: "laborer", level: 0}];
 }

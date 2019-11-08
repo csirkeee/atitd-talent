@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { StorageModule } from "@ngx-pwa/local-storage";
 import { AppComponent } from "./app.component";
+import { SpecializationAvailableComponent } from "./specialization-available/specialization-available.component";
+import { SpecializationDetailComponent } from "./specialization-detail/specialization-detail.component";
 import { SpecializationsComponent } from "./specializations/specializations.component";
 import { StatsComponent } from "./stats/stats.component";
 import { TestDetailComponent } from "./test-detail/test-detail.component";
@@ -17,6 +19,8 @@ import { TestsComponent } from "./tests/tests.component";
     SpecializationsComponent,
     StatsComponent,
     TestDetailComponent,
+    SpecializationDetailComponent,
+    SpecializationAvailableComponent,
   ],
   imports: [
     BrowserModule,

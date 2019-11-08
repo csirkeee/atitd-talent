@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { StorageMap } from "@ngx-pwa/local-storage";
 import { BehaviorSubject, Observable, of, ReplaySubject, Subject } from "rxjs";
 import { catchError, debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operators";
-import { PlayerData, TestPass } from "./player-data";
+import { PlayerData, SelectedSpecialization, TestPass } from "./player-data";
 
 @Injectable({
   providedIn: "root",
@@ -66,5 +66,27 @@ export class PlayerDataService {
       this.playerData.next(currentData);
       this.dataToSave.next(currentData);
     }
+  }
+
+  public addSpecialization(id: string) {
+    if(this.inited) {
+      const currentData = this.playerData.getValue();
+      currentData.levels.push({id, level: 0});
+      this.playerData.next(currentData);
+      this.dataToSave.next(currentData);
+    }
+  }
+
+  public removeSpecialization(id: string) {
+    if(this.inited) {
+      const currentData = this.playerData.getValue();
+      currentData.levels = currentData.levels.filter((l) => l.id !== id);
+      this.playerData.next(currentData);
+      this.dataToSave.next(currentData);
+    }
+  }
+
+  public getLevels(test: string): Observable<SelectedSpecialization[]> {
+    return this.playerData.pipe(map((data) => data.levels));
   }
 }

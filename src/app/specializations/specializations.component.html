@@ -1,1 +1,9 @@
-<p>specializations works!</p>
+<h2>TP spent: <span>{{tpPointsService.getSpentPoints() | async}}</span></h2>
+<h3>Current specializations:</h3>
+<ul class="tests">
+  <app-specialization-detail *ngFor="let specializationData of specializations" [specializationData]="specializationData"></app-specialization-detail>
+</ul>
+<h3>Available specializations:</h3>
+<ul class="tests">
+  <app-specialization-available *ngFor="let specializationData of specializations" [specializationData]="specializationData"></app-specialization-available>
+</ul>
