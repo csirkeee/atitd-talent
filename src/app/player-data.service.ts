@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { StorageMap } from "@ngx-pwa/local-storage";
-import { Observable, of, ReplaySubject, Subject } from "rxjs";
+import { BehaviorSubject, Observable, of, ReplaySubject, Subject } from "rxjs";
 import { catchError, debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operators";
 import { PlayerData, TestPass } from "./player-data";
 
@@ -8,19 +8,22 @@ import { PlayerData, TestPass } from "./player-data";
   providedIn: "root",
 })
 export class PlayerDataService {
-  private playerData = new ReplaySubject<PlayerData>(1);
+  private playerData = new BehaviorSubject<PlayerData>(new PlayerData());
+
+  private inited = false;
 
   private dataToSave = new Subject<PlayerData>();
 
   constructor(private storage: StorageMap) {
     this.storage.get("atitd-player-data").pipe(
-      catchError(() => of({passes: []})),
+      catchError(() => of(new PlayerData())),
     ).subscribe((result: PlayerData) => {
       if(result) {
         this.playerData.next(result);
       } else {
-        this.playerData.next({passes: []});
+        this.playerData.next(new PlayerData());
       }
+      this.inited = true;
     });
 
     this.dataToSave.pipe(
@@ -44,9 +47,10 @@ export class PlayerDataService {
   }
 
   public setPass(test: string, passedTasks: string[]) {
-    return this.playerData.subscribe((data) => {
+    if(this.inited) {
+      const currentData = this.playerData.getValue();
       let changed = false;
-      for(const pass of data.passes) {
+      for(const pass of currentData.passes) {
         if(pass.id === test) {
           pass.passedTasks = passedTasks;
           changed = true;
@@ -54,12 +58,13 @@ export class PlayerDataService {
         }
       }
       if(!changed) {
-        data.passes.push({
+        currentData.passes.push({
           id: test,
           passedTasks,
         });
       }
-      this.dataToSave.next(data);
-    }).unsubscribe();
+      this.playerData.next(currentData);
+      this.dataToSave.next(currentData);
+    }
   }
 }
