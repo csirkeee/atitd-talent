@@ -16,7 +16,6 @@
 }
 
 .specialization-header:hover {
-  color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
@@ -32,14 +31,38 @@
   display: block;
   position: absolute;
   top: 5px;
-  right: 20px;
+  right: 35px;
+}
+
+.plus-minus-button {
+  display: block;
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  top: 5px;
+  width: 20px;
+  border-radius: 10px;
+  background-color: #DAB77B;
+  user-select: none;
+}
+
+.plus-minus-button:hover {
+  background-color: #DDA33F;
+}
+
+.plus-button {
+  right: 10px;
+}
+
+.minus-button {
+  right: 110px;
 }
 
 .specialization-remove-button {
   display: block;
   position: absolute;
   top: 5px;
-  right: 100px;
+  right: 140px;
   background-color: #917A54;
   cursor: pointer;
   padding-left: 10px;

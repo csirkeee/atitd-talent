@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameDataService } from "../game-data.service";
 import { TpPointsService } from "../tp-points.service";
 import { TestData } from "./test-data";
@@ -8,13 +9,21 @@ import { TestData } from "./test-data";
   templateUrl: "./tests.component.html",
   styleUrls: ["./tests.component.css"],
 })
-export class TestsComponent implements OnInit {
+export class TestsComponent implements OnInit, OnDestroy {
   public tests: TestData[];
+
+  private subscriptions: Subscription[] = [];
 
   constructor(private gameDataService: GameDataService, private tpPointsService: TpPointsService) { }
 
   public ngOnInit() {
-    this.gameDataService.getTests()
-      .subscribe((tests) => this.tests = tests);
+    this.subscriptions.push(this.gameDataService.getTests()
+      .subscribe((tests) => this.tests = tests));
+  }
+
+  public ngOnDestroy() {
+    this.subscriptions.forEach((sub) => {
+      sub.unsubscribe();
+    });
   }
 }

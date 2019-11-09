@@ -87,6 +87,19 @@ export class PlayerDataService {
     }
   }
 
+  public setSpecializationLevel(id: string, level: number) {
+    if(this.inited) {
+      const currentData = this.playerData.getValue();
+      currentData.levels.forEach((l) => {
+        if(l.id === id) {
+          l.level = level;
+        }
+      });
+      this.playerData.next(currentData);
+      this.dataToSave.next(currentData);
+    }
+  }
+
   public getLevels(): Observable<SelectedSpecialization[]> {
     return this.playerData.pipe(map((data) => data.levels));
   }
@@ -99,6 +112,16 @@ export class PlayerDataService {
         }
       }
       return false;
+    }));
+  }
+
+  public getSpecializationLevel(specialization: SpecializationData): Observable<number | undefined> {
+    return this.getLevels().pipe(map((levels) => {
+      for(const level of levels) {
+        if(level.id === specialization.id) {
+          return level.level;
+        }
+      }
     }));
   }
 }

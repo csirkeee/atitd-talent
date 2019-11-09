@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { PlayerDataService } from "../player-data.service";
 import { TaskData, TestData } from "../tests/test-data";
 import { TpPointsService } from "../tp-points.service";
@@ -17,7 +18,7 @@ import { TpPointsService } from "../tp-points.service";
   templateUrl: "./test-detail.component.html",
   styleUrls: ["./test-detail.component.css"],
 })
-export class TestDetailComponent implements OnInit {
+export class TestDetailComponent implements OnInit, OnDestroy {
   @Input() public testData: TestData;
 
   public expanded = false;
@@ -27,12 +28,20 @@ export class TestDetailComponent implements OnInit {
   public gotTp = 0;
   public availableTp = 0;
 
+  private subscriptions: Subscription[] = [];
+
   constructor(private playerDataService: PlayerDataService, private tpPointsService: TpPointsService) { }
 
   public ngOnInit() {
-    this.playerDataService.getPass(this.testData.id).subscribe((passes) => {
+    this.subscriptions.push(this.playerDataService.getPass(this.testData.id).subscribe((passes) => {
       passes.forEach((pass) => this.checked.add(pass));
       this.recalculate();
+    }));
+  }
+
+  public ngOnDestroy() {
+    this.subscriptions.forEach((sub) => {
+      sub.unsubscribe();
     });
   }
 
