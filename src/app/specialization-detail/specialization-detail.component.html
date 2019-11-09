@@ -6,9 +6,10 @@
     <span class="specialization-level">Level {{level}}</span>
     <span class="plus-button plus-minus-button" (click)="addLevel();$event.stopPropagation()">+</span>
   </div>
-  <ul [@bodyExpansion]="expanded ? 'expanded' : 'collapsed'" class="specialization-tasks">
-    <li>
-      Cica
-    </li>
+  <ul [@bodyExpansion]="expanded ? 'expanded' : 'collapsed'" class="levels" fxLayout="row wrap">
+    <li *ngFor="let levelBonus of statsService.LEVEL_BONUSES; let i = index"
+        [class]="i < level ? 'selected-level' : ''"
+        [fxFlex]="(levelBonus === levelBonuses.PERK) ? 'calc(55% - 15px)' : 'calc(15% - 15px)'"
+        (click)="toggleLevel(i)">{{getLevelName(levelBonus, i)}}</li>
   </ul>
 </li>

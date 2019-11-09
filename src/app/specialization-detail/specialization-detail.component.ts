@@ -3,6 +3,7 @@ import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { PlayerDataService } from "../player-data.service";
 import { SpecializationData } from "../specializations/spcialization-data";
+import { LevelBonus, StatsService } from "../stats.service";
 
 @Component({
   selector: "app-specialization-detail",
@@ -18,7 +19,6 @@ import { SpecializationData } from "../specializations/spcialization-data";
   styleUrls: ["./specialization-detail.component.css"],
 })
 export class SpecializationDetailComponent implements OnInit, OnDestroy {
-
   @Input() public specializationData: SpecializationData;
 
   public expanded = false;
@@ -27,7 +27,7 @@ export class SpecializationDetailComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private playerDataService: PlayerDataService) { }
+  constructor(private playerDataService: PlayerDataService, private statsService: StatsService) { }
 
   public ngOnInit() {
     this.subscriptions.push(
@@ -43,6 +43,8 @@ export class SpecializationDetailComponent implements OnInit, OnDestroy {
       sub.unsubscribe();
     });
   }
+
+  get levelBonuses() { return LevelBonus; }
 
   public toggleExpanded() {
     this.expanded = !this.expanded;
@@ -64,4 +66,24 @@ export class SpecializationDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  public toggleLevel(i: number) {
+    if(this.level === i+1) {
+      this.playerDataService.setSpecializationLevel(this.specializationData.id, i);
+    } else {
+      this.playerDataService.setSpecializationLevel(this.specializationData.id, i+1);
+    }
+  }
+
+  public getLevelName(level: LevelBonus, i: number): string {
+    switch(level) {
+      case LevelBonus.PRIMARY_1:
+        return this.specializationData.primaryStat1;
+      case LevelBonus.PRIMARY_2:
+        return this.specializationData.primaryStat2;
+      case LevelBonus.SECONDARY:
+        return this.specializationData.secondaryStat;
+      case LevelBonus.PERK:
+        return this.specializationData.perkOrder[Math.floor(i/4)];
+    }
+  }
 }
