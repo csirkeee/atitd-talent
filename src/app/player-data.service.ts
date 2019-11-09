@@ -3,6 +3,7 @@ import { StorageMap } from "@ngx-pwa/local-storage";
 import { BehaviorSubject, Observable, of, ReplaySubject, Subject } from "rxjs";
 import { catchError, debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operators";
 import { PlayerData, SelectedSpecialization, TestPass } from "./player-data";
+import { SpecializationData } from "./specializations/spcialization-data";
 
 @Injectable({
   providedIn: "root",
@@ -86,7 +87,18 @@ export class PlayerDataService {
     }
   }
 
-  public getLevels(test: string): Observable<SelectedSpecialization[]> {
+  public getLevels(): Observable<SelectedSpecialization[]> {
     return this.playerData.pipe(map((data) => data.levels));
+  }
+
+  public isSpecializationSelected(specialization: SpecializationData): Observable<boolean> {
+    return this.getLevels().pipe(map((levels) => {
+      for(const level of levels) {
+        if(level.id === specialization.id) {
+          return true;
+        }
+      }
+      return false;
+    }));
   }
 }

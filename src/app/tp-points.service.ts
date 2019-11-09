@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
+import { SelectedSpecialization } from "./player-data";
+import { PlayerDataService } from "./player-data.service";
 
 @Injectable({
   providedIn: "root",
@@ -7,7 +9,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 export class TpPointsService {
   private testPoints = new Map<string, number>();
   private receivedPoints = new BehaviorSubject<number>(0);
-  private specializationLevels = new Map<string, number>();
+  private specializationLevels: SelectedSpecialization[] = [];
   private spentPoints = new BehaviorSubject<number>(0);
 
   private readonly specializationLevelCosts =
@@ -15,7 +17,12 @@ export class TpPointsService {
   private readonly specializationBuyCosts =
     [0, 0, 2, 4, 8, 16, 32, 64];
 
-  constructor() { }
+  constructor(private playerDataService: PlayerDataService) {
+    playerDataService.getLevels().subscribe((levels) => {
+      this.specializationLevels = levels;
+      this.recalculate();
+    });
+  }
 
   public getReceivedPoints(): Observable<number> {
     return this.receivedPoints;
@@ -32,9 +39,9 @@ export class TpPointsService {
 
   private recalculate() {
     this.receivedPoints.next([...this.testPoints.values()].reduce((a, b) => a+b, 0));
-    let spentPoints = this.specializationBuyCosts.slice(0, this.specializationLevels.size).reduce((a, b) => a+b, 0);
+    let spentPoints = this.specializationBuyCosts.slice(0, this.specializationLevels.length).reduce((a, b) => a+b, 0);
     this.specializationLevels.forEach((level) => {
-      spentPoints += this.specializationLevelCosts.slice(0, level).reduce((a, b) => a+b, 0);
+      spentPoints += this.specializationLevelCosts.slice(0, level.level).reduce((a, b) => a+b, 0);
     });
     this.spentPoints.next(spentPoints);
   }

@@ -1,7 +1,7 @@
 .one-test {
   position: relative;
   left: 0;
-  background-color: #EEE;
+  background-color: #EEEEEE;
   margin: .5em;
   padding: 0;
   border-radius: 25px;
@@ -16,7 +16,7 @@
 
 .test-header:hover {
   color: #607D8B;
-  background-color: #DDD;
+  background-color: #DDDDDD;
   left: .1em;
 }
 
@@ -45,7 +45,7 @@
   position: relative;
   list-style-type: none;
   cursor: pointer;
-  background-color: rgb(235, 216, 184);
+  background-color: #EBD8B8;
   margin: .4em;
   padding: 3px 0 3px 35px;
   height: 25px;
@@ -75,22 +75,22 @@
   height: 25px;
   width: 25px;
   border-radius: 10px;
-  background-color: rgb(218, 183, 123);
+  background-color: #DAB77B;
 }
 
 /* On mouse-over, add a grey background color */
 .test-tasks li:hover input ~ .checkmark {
-  background-color: rgb(221, 163, 63);
+  background-color: #DDA33F;
 }
 
 /* When the checkbox is checked, add a blue background */
 .test-tasks li input:checked ~ .checkmark {
-  background-color: rgb(168, 144, 102);
+  background-color: #A89066;
 }
 
 /* When the checkbox is checked, add a blue background */
 .test-tasks li:hover input:checked ~ .checkmark {
-  background-color: rgb(145, 122, 84);
+  background-color: #917A54;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

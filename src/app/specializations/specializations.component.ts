@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { GameDataService } from "../game-data.service";
+import { PlayerDataService } from "../player-data.service";
 import { TpPointsService } from "../tp-points.service";
 import { SpecializationData } from "./spcialization-data";
 
@@ -11,7 +12,11 @@ import { SpecializationData } from "./spcialization-data";
 export class SpecializationsComponent implements OnInit {
   public specializations: SpecializationData[];
 
-  constructor(private gameDataService: GameDataService, private tpPointsService: TpPointsService) { }
+  constructor(
+    private gameDataService: GameDataService,
+    private tpPointsService: TpPointsService,
+  ) {
+  }
 
   public ngOnInit() {
     this.gameDataService.getSpecializations()

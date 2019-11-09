@@ -1,1 +1,12 @@
-<p>{{specializationData.name}}</p>
+<li *ngIf="playerDataService.isSpecializationSelected(specializationData) | async" class="one-specialization">
+  <div (click)="toggleExpanded()" class="specialization-header">
+    <span class="specialization-title">{{specializationData.name}}</span>
+    <span class="specialization-remove-button" *ngIf="specializationData.id !== 'laborer'" (click)="removeSpecialization()">Remove</span>
+    <span class="specialization-level">Level {{level}}</span>
+  </div>
+  <ul [@bodyExpansion]="expanded ? 'expanded' : 'collapsed'" class="specialization-tasks">
+    <li>
+      Cica
+    </li>
+  </ul>
+</li>

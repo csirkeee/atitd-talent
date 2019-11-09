@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { PlayerDataService } from "../player-data.service";
 import { SpecializationData } from "../specializations/spcialization-data";
 
 @Component({
@@ -9,9 +10,13 @@ import { SpecializationData } from "../specializations/spcialization-data";
 export class SpecializationAvailableComponent implements OnInit {
   @Input() public specializationData: SpecializationData;
 
-  constructor() { }
+  constructor(private playerDataService: PlayerDataService) { }
 
   public ngOnInit() {
+  }
+
+  public addSpecialization() {
+    this.playerDataService.addSpecialization(this.specializationData.id);
   }
 
 }

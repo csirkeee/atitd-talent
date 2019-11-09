@@ -1,0 +1,53 @@
+.one-specialization {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.specialization-header {
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  height: 35px;
+}
+
+.specialization-header:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.specialization-title {
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+}
+
+.specialization-level {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.specialization-remove-button {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 100px;
+  background-color: #917A54;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  color: #EEEEEE;
+}
+
+.specialization-remove-button:hover {
+  background-color: #665539;
+}
