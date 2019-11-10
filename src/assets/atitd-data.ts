@@ -1,4 +1,5 @@
 import { GameData } from "src/app/game-data";
+import { TestType } from "src/app/tests/test-data";
 
 export const ATITD_DATA: GameData = {
   tests: [
@@ -6,6 +7,7 @@ export const ATITD_DATA: GameData = {
       id: "starting",
       name: "Starting tasks",
       imageLocation: "assets\\images\\tests\\Leadership_Test_Icons_Plantation.png",
+      type: TestType.RANDOM_ORDER,
       tasks: [
         {
           id: "citizenship",
@@ -33,6 +35,7 @@ export const ATITD_DATA: GameData = {
       id: "obelisk",
       name: "Obelisk",
       imageLocation: "assets\\images\\tests\\Architecture_Test_Icons_Test_Obelisk.png",
+      type: TestType.RANDOM_ORDER,
       tasks: [
         {
           id: "desert",
@@ -75,6 +78,7 @@ export const ATITD_DATA: GameData = {
       id: "towers",
       name: "Towers",
       imageLocation: "assets\\images\\tests\\Architecture_Test_Icons_Towers.png",
+      type: TestType.RANDOM_ORDER,
       tasks: [
         {
           id: "solidland",
@@ -117,6 +121,7 @@ export const ATITD_DATA: GameData = {
       id: "cicada",
       name: "Singing Cicada",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Icons_Cicada.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "pass1st",
@@ -159,6 +164,7 @@ export const ATITD_DATA: GameData = {
       id: "bedouin",
       name: "Bedouin",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Icons_Bedouin.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "pass1st",
@@ -201,6 +207,7 @@ export const ATITD_DATA: GameData = {
       id: "oyster",
       name: "Oyster Catcher",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Icons_Oyster_Catcher.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "pass1st",
@@ -243,6 +250,7 @@ export const ATITD_DATA: GameData = {
       id: "acrobat",
       name: "Acrobat",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Icons_Acrobat.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "teach7",
@@ -285,6 +293,7 @@ export const ATITD_DATA: GameData = {
       id: "tattoo",
       name: "Ritual Tattoo",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Icons_Ritual_Tattoo.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "complete1stlist",
@@ -327,6 +336,7 @@ export const ATITD_DATA: GameData = {
       id: "safari",
       name: "Safari",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Safari.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "cought4",
@@ -369,6 +379,7 @@ export const ATITD_DATA: GameData = {
       id: "darkestnight",
       name: "Darkest Night",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Icons_Darkest_Night.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "complete1st",
@@ -411,6 +422,7 @@ export const ATITD_DATA: GameData = {
       id: "khefreschildren",
       name: "Khefre's Children",
       imageLocation: "assets\\images\\tests\\Art_and_Music_Test_Icons_Khefres_Child.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "breedowned",
@@ -438,6 +450,7 @@ export const ATITD_DATA: GameData = {
       id: "alignment",
       name: "Astrological Alignment",
       imageLocation: "assets\\images\\tests\\Worship_Test_Icons_Astro_Alignment.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "found5",
@@ -470,6 +483,7 @@ export const ATITD_DATA: GameData = {
       id: "octec",
       name: "Octec's Ghost",
       imageLocation: "assets\\images\\tests\\Architecture_Test_Icons_Octec_Ghost.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "built",
@@ -512,6 +526,7 @@ export const ATITD_DATA: GameData = {
       id: "balance",
       name: "Balance of Goods",
       imageLocation: "assets\\images\\tests\\Harmony_Test_Icons_Balance_Of_Goods.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "built",
@@ -529,6 +544,7 @@ export const ATITD_DATA: GameData = {
       id: "marriage",
       name: "Marriage",
       imageLocation: "assets\\images\\tests\\Harmony_Test_Icons_Marriage.png",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "witness",
@@ -546,6 +562,7 @@ export const ATITD_DATA: GameData = {
       id: "vigil",
       name: "Vigil",
       imageLocation: "assets\\images\\tests\\Worship_Test_Icons_Vigil.png ",
+      type: TestType.SERIAL,
       tasks: [
         {
           id: "build",

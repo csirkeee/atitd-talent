@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { PlayerDataService } from "../player-data.service";
-import { TaskData, TestData } from "../tests/test-data";
+import { TaskData, TestData, TestType } from "../tests/test-data";
 import { TpPointsService } from "../tp-points.service";
 
 @Component({
@@ -50,10 +50,28 @@ export class TestDetailComponent implements OnInit, OnDestroy {
   }
 
   public onCheck(task: TaskData) {
-    if(this.checked.has(task.id)) {
-      this.checked.delete(task.id);
-    } else {
-      this.checked.add(task.id);
+    if(this.testData.type === TestType.RANDOM_ORDER) {
+      if(this.checked.has(task.id)) {
+        this.checked.delete(task.id);
+      } else {
+        this.checked.add(task.id);
+      }
+    } else { // this.testData.type === TestType.SERIAL
+      const index = this.testData.tasks.findIndex((t) => t.id === task.id);
+
+      if(this.checked.has(task.id)) {
+        for(let i = index; i < this.testData.tasks.length; i += 1) {
+          if(this.checked.has(this.testData.tasks[i].id)) {
+            this.checked.delete(this.testData.tasks[i].id);
+          }
+        }
+      } else {
+        for(let i = 0; i <= index; i += 1) {
+          if(!this.checked.has(this.testData.tasks[i].id)) {
+            this.checked.add(this.testData.tasks[i].id);
+          }
+        }
+      }
     }
     this.recalculate();
 
