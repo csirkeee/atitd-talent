@@ -1156,7 +1156,7 @@ export const ATITD_DATA: GameData = {
         {
           id: "moreslate",
           name: "Eye for Slate",
-          description: "Decreases time required to make items in forge",
+          description: "Increased chance of finding hoards of slate",
         },
         {
           id: "easygravel",
