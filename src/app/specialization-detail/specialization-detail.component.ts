@@ -83,7 +83,8 @@ export class SpecializationDetailComponent implements OnInit, OnDestroy {
       case LevelBonus.SECONDARY:
         return this.specializationData.secondaryStat;
       case LevelBonus.PERK:
-        return this.specializationData.perkOrder[Math.floor(i/4)];
+        const perkId = this.specializationData.perkOrder[Math.floor(i/4)];
+        return this.statsService.findPerk(perkId).name;
     }
   }
 }

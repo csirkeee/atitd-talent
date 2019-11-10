@@ -43,20 +43,20 @@ export class StatsService {
     return this.statData;
   }
 
-  private findSpecialization(id: string): SpecializationData {
-    for(const specialization of this.specializations) {
-      if(specialization.id === id) {
-        return specialization;
-      }
-    }
-  }
-
-  private findPerk(id: string): PerkData {
+  public findPerk(id: string): PerkData {
     for(const specialization of this.specializations) {
       for(const perk of specialization.perks) {
         if(perk.id === id) {
           return perk;
         }
+      }
+    }
+  }
+
+  private findSpecialization(id: string): SpecializationData {
+    for(const specialization of this.specializations) {
+      if(specialization.id === id) {
+        return specialization;
       }
     }
   }
