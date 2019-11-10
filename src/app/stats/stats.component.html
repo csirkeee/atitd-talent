@@ -1,1 +1,5 @@
-<p>stats works!</p>
+<h2>TP remaining: <span>{{tpPointsService.getRemainingPoints() | async}}</span></h2>
+<h3>Atributes:</h3>
+<ul class="attributes">
+  <li *ngFor="let attribute of statData.attributes">{{attribute.name}} = {{attribute.value}}</li>
+</ul>

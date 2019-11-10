@@ -8,6 +8,6 @@
     <app-specializations></app-specializations>
   </div>
   <div fxFlex>
-    <app-stats></app-stats>
+    <app-stats [statData]="statsService.getStatData() | async"></app-stats>
   </div>
 </div>

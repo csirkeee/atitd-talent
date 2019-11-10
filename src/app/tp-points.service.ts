@@ -11,6 +11,7 @@ export class TpPointsService {
   private receivedPoints = new BehaviorSubject<number>(0);
   private specializationLevels: SelectedSpecialization[] = [];
   private spentPoints = new BehaviorSubject<number>(0);
+  private remainingPoints = new BehaviorSubject<number>(0);
 
   private readonly specializationLevelCosts =
     [1, 1, 1, 2, 1, 1, 1, 3, 2, 2, 2, 4, 2, 2, 2, 5, 3, 3, 3, 6, 3, 3, 3, 7, 4, 4, 4, 8, 4, 4, 4, 9];
@@ -32,17 +33,23 @@ export class TpPointsService {
     return this.spentPoints;
   }
 
+  public getRemainingPoints(): Observable<number> {
+    return this.remainingPoints;
+  }
+
   public setTestPoints(testId: string, points: number) {
     this.testPoints.set(testId, points);
     this.recalculate();
   }
 
   private recalculate() {
-    this.receivedPoints.next([...this.testPoints.values()].reduce((a, b) => a+b, 0));
+    const receivedPoints = [...this.testPoints.values()].reduce((a, b) => a+b, 0);
+    this.receivedPoints.next(receivedPoints);
     let spentPoints = this.specializationBuyCosts.slice(0, this.specializationLevels.length).reduce((a, b) => a+b, 0);
     this.specializationLevels.forEach((level) => {
       spentPoints += this.specializationLevelCosts.slice(0, level.level).reduce((a, b) => a+b, 0);
     });
     this.spentPoints.next(spentPoints);
+    this.remainingPoints.next(receivedPoints - spentPoints);
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { StatsService } from "./stats.service";
 
 @Component({
   selector: "app-root",
@@ -7,4 +8,6 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   public title = "talent";
+
+  constructor(private statsService: StatsService) { }
 }
