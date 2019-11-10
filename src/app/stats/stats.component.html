@@ -3,3 +3,7 @@
 <ul class="attributes">
   <li *ngFor="let attribute of statData.attributes">{{attribute.name}} = {{attribute.value}}</li>
 </ul>
+<h3>Perks:</h3>
+<ul class="perks">
+  <li *ngFor="let perk of statData.perks"><span *ngIf="perk.times > 1">{{perk.times}} X </span>{{perk.perkData.name}}: {{perk.perkData.description}}</li>
+</ul>

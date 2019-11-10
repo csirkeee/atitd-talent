@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { GameDataService } from "./game-data.service";
 import { SelectedSpecialization } from "./player-data";
 import { PlayerDataService } from "./player-data.service";
-import { SpecializationData } from "./specializations/spcialization-data";
+import { PerkData, SpecializationData } from "./specializations/spcialization-data";
 import { StatData } from "./stat-data";
 
 export enum LevelBonus {
@@ -51,6 +51,16 @@ export class StatsService {
     }
   }
 
+  private findPerk(id: string): PerkData {
+    for(const specialization of this.specializations) {
+      for(const perk of specialization.perks) {
+        if(perk.id === id) {
+          return perk;
+        }
+      }
+    }
+  }
+
   private recalculate(levels: SelectedSpecialization[]) {
     if(this.specializations) {
       const statCounter = new Map<string, number>();
@@ -92,6 +102,12 @@ export class StatsService {
       for(let i = 0; i < this.STATS.length; i += 1) {
         statData.attributes.push({id: this.STATS[i], name: this.STAT_NAMES[i], value: statCounter.get(this.STATS[i])});
       }
+
+      for(const perkId of perkCounter.keys()) {
+        statData.perks.push({id: perkId, perkData: this.findPerk(perkId), times: perkCounter.get(perkId)});
+      }
+
+      statData.perks.sort((a, b) => a.perkData.name.localeCompare(b.perkData.name));
 
       this.statData.next(statData);
     }
