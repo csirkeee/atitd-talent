@@ -17,7 +17,7 @@ export class SpecializationsComponent implements OnInit, OnDestroy {
 
   constructor(
     private gameDataService: GameDataService,
-    private tpPointsService: TpPointsService,
+    public tpPointsService: TpPointsService,
   ) {
   }
 

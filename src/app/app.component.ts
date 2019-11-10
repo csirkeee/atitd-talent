@@ -9,5 +9,5 @@ import { StatsService } from "./stats.service";
 export class AppComponent {
   public title = "talent";
 
-  constructor(private statsService: StatsService) { }
+  constructor(public statsService: StatsService) { }
 }

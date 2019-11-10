@@ -14,7 +14,7 @@ export class TestsComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private gameDataService: GameDataService, private tpPointsService: TpPointsService) { }
+  constructor(private gameDataService: GameDataService, public tpPointsService: TpPointsService) { }
 
   public ngOnInit() {
     this.subscriptions.push(this.gameDataService.getTests()

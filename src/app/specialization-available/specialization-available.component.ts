@@ -10,7 +10,7 @@ import { SpecializationData } from "../specializations/spcialization-data";
 export class SpecializationAvailableComponent implements OnInit {
   @Input() public specializationData: SpecializationData;
 
-  constructor(private playerDataService: PlayerDataService) { }
+  constructor(public playerDataService: PlayerDataService) { }
 
   public ngOnInit() {
   }

@@ -27,7 +27,7 @@ export class SpecializationDetailComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private playerDataService: PlayerDataService, private statsService: StatsService) { }
+  constructor(public playerDataService: PlayerDataService, public statsService: StatsService) { }
 
   public ngOnInit() {
     this.subscriptions.push(

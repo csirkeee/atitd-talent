@@ -10,7 +10,7 @@ import { TpPointsService } from "../tp-points.service";
 export class StatsComponent implements OnInit {
   @Input() public statData: StatData;
 
-  constructor(private tpPointsService: TpPointsService) { }
+  constructor(public tpPointsService: TpPointsService) { }
 
   public ngOnInit() {
   }
