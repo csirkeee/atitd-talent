@@ -72,9 +72,11 @@ export class PlayerDataService {
   public addSpecialization(id: string) {
     if(this.inited) {
       const currentData = this.playerData.getValue();
-      currentData.levels.push({id, level: 0});
-      this.playerData.next(currentData);
-      this.dataToSave.next(currentData);
+      if(currentData.levels.length < 8) {
+        currentData.levels.push({id, level: 0});
+        this.playerData.next(currentData);
+        this.dataToSave.next(currentData);
+      }
     }
   }
 
