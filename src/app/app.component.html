@@ -1,5 +1,5 @@
 <h1>ATITD Talent planner</h1>
-<hr>
+<hr/>
 <div fxLayout="column" fxLayout.gt-md="row">
   <div fxFlex>
     <app-tests></app-tests>
@@ -10,4 +10,8 @@
   <div fxFlex>
     <app-stats [statData]="statsService.getStatData() | async"></app-stats>
   </div>
+</div>
+<div class="footer">
+  <hr/>
+  <p>Created by Csirke. Source code on <a href="https://github.com/csirkeee/atitd-talent">GitHub</a></p>
 </div>
