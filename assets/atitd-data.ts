@@ -574,6 +574,11 @@ export const ATITD_DATA: GameData = {
           text: "Make a sacrifice to a sacrificial bonfire",
           value: 1,
         },
+        {
+          id: "donate",
+          text: "Donate some favor at a University of Worship",
+          value: 1,
+        },
       ],
     },
   ],
