@@ -534,9 +534,19 @@ export const ATITD_DATA: GameData = {
           value: 1,
         },
         {
+          id: "offeritems",
+          text: "Place 10 items in the Vault",
+          value: 1,
+        },
+        {
+          id: "scorepoint",
+          text: "Score at least 1 point",
+          value: 2,
+        },
+        {
           id: "won",
           text: "Won the weekly offering count",
-          value: 6,
+          value: 3,
         },
       ],
     },
