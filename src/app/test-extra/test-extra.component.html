@@ -1,0 +1,9 @@
+<li class="one-test">
+  <div class="test-header">
+    <img class="img-test-icon" src="assets\images\tests\Leadership_Test_Icons_Bureaucrat.png"/>
+    <span class="test-title">Extra TP</span>
+    <span class="minus-button plus-minus-button" (click)="removeExtra();$event.stopPropagation()">-</span>
+    <span class="extra-amount">{{playerDataService.getExtraTp() | async}}</span>
+    <span class="plus-button plus-minus-button" (click)="addExtra();$event.stopPropagation()">+</span>
+  </div>
+</li>

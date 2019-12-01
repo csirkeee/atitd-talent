@@ -10,6 +10,7 @@ export class TpPointsService {
   private testPoints = new Map<string, number>();
   private receivedPoints = new BehaviorSubject<number>(0);
   private specializationLevels: SelectedSpecialization[] = [];
+  private extraTp: number = 0;
   private spentPoints = new BehaviorSubject<number>(0);
   private remainingPoints = new BehaviorSubject<number>(0);
 
@@ -21,6 +22,10 @@ export class TpPointsService {
   constructor(private playerDataService: PlayerDataService) {
     playerDataService.getLevels().subscribe((levels) => {
       this.specializationLevels = levels;
+      this.recalculate();
+    });
+    playerDataService.getExtraTp().subscribe((extraTp) => {
+      this.extraTp = extraTp;
       this.recalculate();
     });
   }
@@ -43,7 +48,7 @@ export class TpPointsService {
   }
 
   private recalculate() {
-    const receivedPoints = [...this.testPoints.values()].reduce((a, b) => a+b, 0);
+    const receivedPoints = [...this.testPoints.values()].reduce((a, b) => a+b, 0) + this.extraTp;
     this.receivedPoints.next(receivedPoints);
     let spentPoints = this.specializationBuyCosts.slice(0, this.specializationLevels.length).reduce((a, b) => a+b, 0);
     this.specializationLevels.forEach((level) => {

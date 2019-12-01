@@ -1,4 +1,5 @@
 <h2>TP gained: <span>{{tpPointsService.getReceivedPoints() | async}}</span></h2>
 <ul class="tests">
   <app-test-detail *ngFor="let testData of tests" [testData]="testData"></app-test-detail>
+  <app-test-extra></app-test-extra>
 </ul>

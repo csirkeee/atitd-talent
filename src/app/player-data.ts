@@ -11,4 +11,5 @@ export class SelectedSpecialization {
 export class PlayerData {
   public passes: TestPass[] = [];
   public levels: SelectedSpecialization[] = [{id: "laborer", level: 0}];
+  public extraTp?: number = 0;
 }

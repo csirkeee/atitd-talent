@@ -10,6 +10,7 @@ import { SpecializationDetailComponent } from "./specialization-detail/specializ
 import { SpecializationsComponent } from "./specializations/specializations.component";
 import { StatsComponent } from "./stats/stats.component";
 import { TestDetailComponent } from "./test-detail/test-detail.component";
+import { TestExtraComponent } from "./test-extra/test-extra.component";
 import { TestsComponent } from "./tests/tests.component";
 
 @NgModule({
@@ -21,6 +22,7 @@ import { TestsComponent } from "./tests/tests.component";
     TestDetailComponent,
     SpecializationDetailComponent,
     SpecializationAvailableComponent,
+    TestExtraComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+.extra-amount {
+  display: block;
+  position: absolute;
+  top: 13px;
+  right: 35px;
+}
+
+.plus-minus-button {
+  display: block;
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  top: 13px;
+  width: 20px;
+  border-radius: 10px;
+  background-color: #DAB77B;
+  user-select: none;
+}
+
+.plus-minus-button:hover {
+  background-color: #DDA33F;
+}
+
+.plus-button {
+  right: 10px;
+}
+
+.minus-button {
+  right: 80px;
+}

@@ -20,6 +20,9 @@ export class PlayerDataService {
       catchError(() => of(new PlayerData())),
     ).subscribe((result: PlayerData) => {
       if(result) {
+        if(!result.extraTp) {
+          result.extraTp = 0;
+        }
         this.playerData.next(result);
       } else {
         this.playerData.next(new PlayerData());
@@ -66,6 +69,34 @@ export class PlayerDataService {
       }
       this.playerData.next(currentData);
       this.dataToSave.next(currentData);
+    }
+  }
+
+  public getExtraTp(): Observable<number> {
+    return this.playerData.pipe(map((data) => {
+      return data.extraTp;
+    }));
+  }
+
+  public addExtraTp() {
+    if(this.inited) {
+      const currentData = this.playerData.getValue();
+      if(currentData.extraTp < 1000) {
+        currentData.extraTp += 1;
+        this.playerData.next(currentData);
+        this.dataToSave.next(currentData);
+      }
+    }
+  }
+
+  public removeExtraTp() {
+    if(this.inited) {
+      const currentData = this.playerData.getValue();
+      if(currentData.extraTp) {
+        currentData.extraTp -= 1;
+        this.playerData.next(currentData);
+        this.dataToSave.next(currentData);
+      }
     }
   }
 
