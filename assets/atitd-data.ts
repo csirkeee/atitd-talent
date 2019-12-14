@@ -333,6 +333,34 @@ export const ATITD_DATA: GameData = {
       ],
     },
     {
+      id: "venery",
+      name: "Venery",
+      imageLocation: "assets\\images\\tests\\Thought_Test_Icons_Venery.png",
+      type: TestType.SERIAL,
+      tasks: [
+        {
+          id: "buildit",
+          text: "Building the Venery Gathering Point",
+          value: 1,
+        },
+        {
+          id: "createlockbox",
+          text: "Forging a Simple Lockbox",
+          value: 1,
+        },
+        {
+          id: "install7lockboxes",
+          text: "Installing 7 Lockboxes",
+          value: 1,
+        },
+        {
+          id: "completetest",
+          text: "Passing the Test",
+          value: 4,
+        },
+      ],
+    },
+    {
       id: "safari",
       name: "Safari",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Safari.png",
@@ -475,6 +503,34 @@ export const ATITD_DATA: GameData = {
         {
           id: "ritual",
           text: "Completed ritual",
+          value: 3,
+        },
+      ],
+    },
+    {
+      id: "archaeologist",
+      name: "Archaeologist",
+      imageLocation: "assets\\images\\tests\\Human_Body_Test_Icons_Archeologist.png",
+      type: TestType.SERIAL,
+      tasks: [
+        {
+          id: "buildit",
+          text: "Build a Trophy Cases",
+          value: 1,
+        },
+        {
+          id: "digrelic",
+          text: "Dig up a relic",
+          value: 2,
+        },
+        {
+          id: "install3",
+          text: "Install 3 relics",
+          value: 1,
+        },
+        {
+          id: "completetest",
+          text: "Won the contest at the weekly scoring",
           value: 3,
         },
       ],
