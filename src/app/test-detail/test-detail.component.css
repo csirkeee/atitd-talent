@@ -10,11 +10,14 @@
 
 .test-header {
   border-radius: 25px;
-  cursor: pointer;
   font-size: 20px;
 }
 
-.test-header:hover {
+.test-header.openable {
+  cursor: pointer;
+}
+
+.test-header.openable:hover {
   color: #607D8B;
   background-color: #DDDDDD;
   left: .1em;
