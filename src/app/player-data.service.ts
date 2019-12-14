@@ -78,22 +78,22 @@ export class PlayerDataService {
     }));
   }
 
-  public addExtraTp() {
+  public addExtraTp(amount: number) {
     if(this.inited) {
       const currentData = this.playerData.getValue();
       if(currentData.extraTp < 1000) {
-        currentData.extraTp += 1;
+        currentData.extraTp = Math.min(1000, currentData.extraTp + amount);
         this.playerData.next(currentData);
         this.dataToSave.next(currentData);
       }
     }
   }
 
-  public removeExtraTp() {
+  public removeExtraTp(amount: number) {
     if(this.inited) {
       const currentData = this.playerData.getValue();
       if(currentData.extraTp) {
-        currentData.extraTp -= 1;
+        currentData.extraTp = Math.max(0, currentData.extraTp - amount);
         this.playerData.next(currentData);
         this.dataToSave.next(currentData);
       }
