@@ -7,18 +7,15 @@ import { PlayerDataService } from "../player-data.service";
   selector: "app-test-extra",
   templateUrl: "./test-extra.component.html",
   styleUrls: [
-    "../test-detail/test-detail.component.css",
-    "./test-extra.component.css",
+    "../test-detail/test-detail.component.scss",
+    "./test-extra.component.scss",
   ],
 })
-export class TestExtraComponent implements OnInit {
+export class TestExtraComponent {
 
   private mouseUp = new Subject<void>();
 
   constructor(public playerDataService: PlayerDataService) { }
-
-  public ngOnInit() {
-  }
 
   public plusMinusUp() {
     this.mouseUp.next();

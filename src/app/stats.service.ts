@@ -51,6 +51,7 @@ export class StatsService {
         }
       }
     }
+    return undefined;
   }
 
   private findSpecialization(id: string): SpecializationData {
@@ -59,6 +60,7 @@ export class StatsService {
         return specialization;
       }
     }
+    return undefined;
   }
 
   private recalculate(levels: SelectedSpecialization[]) {

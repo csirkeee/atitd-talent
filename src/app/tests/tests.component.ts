@@ -7,7 +7,7 @@ import { TestData } from "./test-data";
 @Component({
   selector: "app-tests",
   templateUrl: "./tests.component.html",
-  styleUrls: ["./tests.component.css"],
+  styleUrls: ["./tests.component.scss"],
 })
 export class TestsComponent implements OnInit, OnDestroy {
   public tests: TestData[];

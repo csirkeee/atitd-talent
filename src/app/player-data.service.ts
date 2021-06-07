@@ -155,6 +155,7 @@ export class PlayerDataService {
           return level.level;
         }
       }
+      return undefined;
     }));
   }
 }

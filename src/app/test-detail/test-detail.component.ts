@@ -16,7 +16,7 @@ import { TpPointsService } from "../tp-points.service";
     ]),
   ],
   templateUrl: "./test-detail.component.html",
-  styleUrls: ["./test-detail.component.css"],
+  styleUrls: ["./test-detail.component.scss"],
 })
 export class TestDetailComponent implements OnInit, OnDestroy {
   @Input() public testData: TestData;

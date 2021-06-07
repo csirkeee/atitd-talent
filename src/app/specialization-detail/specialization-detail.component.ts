@@ -16,7 +16,7 @@ import { LevelBonus, StatsService } from "../stats.service";
     ]),
   ],
   templateUrl: "./specialization-detail.component.html",
-  styleUrls: ["./specialization-detail.component.css"],
+  styleUrls: ["./specialization-detail.component.scss"],
 })
 export class SpecializationDetailComponent implements OnInit, OnDestroy {
   @Input() public specializationData: SpecializationData;

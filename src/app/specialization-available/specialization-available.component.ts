@@ -5,15 +5,12 @@ import { SpecializationData } from "../specializations/spcialization-data";
 @Component({
   selector: "app-specialization-available",
   templateUrl: "./specialization-available.component.html",
-  styleUrls: ["./specialization-available.component.css"],
+  styleUrls: ["./specialization-available.component.scss"],
 })
-export class SpecializationAvailableComponent implements OnInit {
+export class SpecializationAvailableComponent {
   @Input() public specializationData: SpecializationData;
 
   constructor(public playerDataService: PlayerDataService) { }
-
-  public ngOnInit() {
-  }
 
   public addSpecialization() {
     this.playerDataService.addSpecialization(this.specializationData.id);

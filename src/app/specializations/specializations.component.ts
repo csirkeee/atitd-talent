@@ -8,7 +8,7 @@ import { SpecializationData } from "./spcialization-data";
 @Component({
   selector: "app-specializations",
   templateUrl: "./specializations.component.html",
-  styleUrls: ["./specializations.component.css"],
+  styleUrls: ["./specializations.component.scss"],
 })
 export class SpecializationsComponent implements OnInit, OnDestroy {
   public specializations: SpecializationData[];

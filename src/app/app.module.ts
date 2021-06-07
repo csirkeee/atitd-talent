@@ -31,6 +31,6 @@ import { TestsComponent } from "./tests/tests.component";
     StorageModule.forRoot({ IDBNoWrap: true }),
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
