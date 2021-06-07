@@ -15,6 +15,11 @@ export const ATITD_DATA: GameData = {
           value: 1,
         },
         {
+          id: "naturalphilosophy",
+          text: "Complete the Natural Philosophy task",
+          value: 1,
+        },
+        {
           id: "homesweethome",
           text: "Complete the Home Sweet Home task",
           value: 1,
@@ -22,6 +27,11 @@ export const ATITD_DATA: GameData = {
         {
           id: "artandmusic",
           text: "Complete the Art and Music task",
+          value: 1,
+        },
+        {
+          id: "exploration",
+          text: "Complete the Exploration task",
           value: 1,
         },
         {
