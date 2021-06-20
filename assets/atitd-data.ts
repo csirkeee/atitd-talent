@@ -39,6 +39,11 @@ export const ATITD_DATA: GameData = {
           text: "Complete the Puzzle in the Night Sky task",
           value: 1,
         },
+        {
+          id: "worship",
+          text: "Complete the A Simple Offering task",
+          value: 1,
+        },
       ],
     },
     {
@@ -740,8 +745,8 @@ export const ATITD_DATA: GameData = {
     {
       id: "architect",
       name: "Architect",
-      primaryStat1: "con",
-      primaryStat2: "dex",
+      primaryStat1: "dex",
+      primaryStat2: "con",
       secondaryStat: "end",
       perks: [
         {
@@ -777,6 +782,50 @@ export const ATITD_DATA: GameData = {
       ],
     },
     {
+      id: "brewmaster",
+      name: "Brewmaster",
+      primaryStat1: "con",
+      primaryStat2: "str",
+      secondaryStat: "foc",
+      perks: [
+        {
+          id: "betterbeer",
+          name: "Potent Drink",
+          description: "Your beer lasts longer",
+        },
+        {
+          id: "cheaperbarrel",
+          name: "Over A Barrel",
+          description: "Cheaper barrel construction",
+        },
+        {
+          id: "morebarley",
+          name: "Increased Barley",
+          description: "More barley when harvesting",
+        },
+        {
+          id: "morewheat",
+          name: "Wheat and See",
+          description: "More wheat when harvesting",
+        },
+        {
+          id: "morebeer",
+          name: "Another Round",
+          description: "Your beer barrels yield more servings",
+        },
+      ],
+      perkOrder: [
+        "betterbeer",
+        "cheaperbarrel",
+        "morebarley",
+        "betterbeer",
+        "cheaperbarrel",
+        "morebarley",
+        "morewheat",
+        "morebeer",
+      ],
+    },
+    {
       id: "carpenter",
       name: "Carpenter",
       primaryStat1: "foc",
@@ -785,8 +834,8 @@ export const ATITD_DATA: GameData = {
       perks: [
         {
           id: "woodplane",
-          name: "The Way of Stone",
-          description: "Decreases the chance of Slate Blades breaking in a wood plane",
+          name: "Ancient Bladework",
+          description: "Decreases the chance of slate, bone and flint blades breaking in a wood plane or carpentry shop",
         },
         {
           id: "carpentryshop",
@@ -810,7 +859,7 @@ export const ATITD_DATA: GameData = {
         },
         {
           id: "woodshed",
-          name: "Wood Shed",
+          name: "Wood Store",
           description: "Unique storage building that can hold up to one million wood",
         },
       ],
@@ -853,9 +902,9 @@ export const ATITD_DATA: GameData = {
           description: "Adds the ability to pick herbs offline - random herbs are generated based on rarity",
         },
         {
-          id: "todo",
-          name: "TODO",
-          description: "This perk is not implemented yet",
+          id: "spiceitup",
+          name: "Spice It Up",
+          description: "This perk is not implemented yet?",
         },
       ],
       perkOrder: [
@@ -864,9 +913,53 @@ export const ATITD_DATA: GameData = {
         "masterpiecefood",
         "morefood",
         "freshfood",
-        "todo",
+        "spiceitup",
         "morefood",
         "offlineherbs",
+      ],
+    },
+    {
+      id: "engineer",
+      name: "Engineer",
+      primaryStat1: "con",
+      primaryStat2: "dex",
+      secondaryStat: "foc",
+      perks: [
+        {
+          id: "easiergearbox",
+          name: "Like Clockwork",
+          description: "Can add additional gears to gearboxes",
+        },
+        {
+          id: "moremetalsalts",
+          name: "Metal Salt Mastery",
+          description: "Increases the yield of metal salt creation",
+        },
+        {
+          id: "gearhead",
+          name: "Gearhead",
+          description: "Increases effective mechanics skill by 1 (once learned)",
+        },
+        {
+          id: "moretreatment",
+          name: "Just Wedge It In",
+          description: "Doubles number of boards/metal in treatment tanks",
+        },
+        {
+          id: "bettersalvaging",
+          name: "Junkyard Dog",
+          description: "Increases effective salvage techniques skill by 1 (once learned)",
+        },
+      ],
+      perkOrder: [
+        "easiergearbox",
+        "moremetalsalts",
+        "gearhead",
+        "moretreatment",
+        "moremetalsalts",
+        "gearhead",
+        "moretreatment",
+        "bettersalvaging",
       ],
     },
     {
@@ -947,9 +1040,9 @@ export const ATITD_DATA: GameData = {
           description: "Sheet Glass does not break for you",
         },
         {
-          id: "todo",
-          name: "TODO",
-          description: "This perk is not implemented yet",
+          id: "fixglazierbenches",
+          name: "Master of the Bench",
+          description: "Reconfigure variable values in Glazier's Benches",
         },
       ],
       perkOrder: [
@@ -960,7 +1053,7 @@ export const ATITD_DATA: GameData = {
         "bettersheetglass",
         "morepotash",
         "glassquality",
-        "todo",
+        "fixglazierbenches",
       ],
     },
     {
@@ -1042,10 +1135,59 @@ export const ATITD_DATA: GameData = {
       ],
     },
     {
+      id: "naturalist",
+      name: "Natuarlist",
+      primaryStat1: "foc",
+      primaryStat2: "spd",
+      secondaryStat: "con",
+      perks: [
+        {
+          id: "moreherbs",
+          name: "Sage Advice",
+          description: "When gathering herbs correctly, gain an additional herb",
+        },
+        {
+          id: "moveflowers",
+          name: "Naturalist's Touch",
+          description: "Allows flowers to be uprooted",
+        },
+        {
+          id: "morenutsessence",
+          name: "Essential Nut's Essence",
+          description: "Increases the yield of Nut's Essence at the Toxin Kitchen by 1",
+        },
+        {
+          id: "morewildseeds",
+          name: "Monkey Seed, Monkey Do",
+          description: "When finding seeds, gain an extra seed",
+        },
+        {
+          id: "morebugs",
+          name: "Don't Swat the Small Stuff",
+          description: "When gathering insects, gather an additional insect of a different kind",
+        },
+        {
+          id: "easynutsessence",
+          name: "Get a Little Mushy",
+          description: "Make Nut's Essence with any mushroom",
+        },
+      ],
+      perkOrder: [
+        "moreherbs",
+        "moveflowers",
+        "morenutsessence",
+        "moreherbs",
+        "morewildseeds",
+        "morenutsessence",
+        "morebugs",
+        "easynutsessence",
+      ],
+    },
+    {
       id: "potter",
       name: "Potter",
-      primaryStat1: "str",
-      primaryStat2: "dex",
+      primaryStat1: "dex",
+      primaryStat2: "str",
       secondaryStat: "con",
       perks: [
         {
@@ -1131,7 +1273,7 @@ export const ATITD_DATA: GameData = {
         "betterdowsing",
         "fasterdowsing",
         "prayforstats",
-        "changeraeli",
+        "commonaltar",
       ],
     },
     {
@@ -1164,12 +1306,12 @@ export const ATITD_DATA: GameData = {
         {
           id: "happypigs",
           name: "Happy Pigs, Happy Life",
-          description: "TODO",
+          description: "Increased happiness for your pigs",
         },
         {
-          id: "animalgender",
-          name: "Mendel's Bane",
-          description: "Influence the gender and type of animal born from a pregnant animal on a timer",
+          id: "returnploughs",
+          name: "Hired Help",
+          description: "A hired hand helps return ploughs to your ranch if the Bull dies at the end of a ploughing cycle",
         },
       ],
       perkOrder: [
@@ -1180,7 +1322,7 @@ export const ATITD_DATA: GameData = {
         "happypigs",
         "morefeed",
         "bettercattle",
-        "animalgender",
+        "returnploughs",
       ],
     },
     {
@@ -1206,9 +1348,14 @@ export const ATITD_DATA: GameData = {
           description: "+5% to Alloy Crystallization",
         },
         {
-          id: "todo",
-          name: "TODO",
-          description: "This perk is not implemented yet",
+          id: "bettercasting",
+          name: "Bigger Batches",
+          description: "Increased Batch Sizes of certain cast items",
+        },
+        {
+          id: "octecsvision",
+          name: "Octec's Vision",
+          description: "You can reheat an attempt of Octec's Alloy",
         },
       ],
       perkOrder: [
@@ -1218,15 +1365,15 @@ export const ATITD_DATA: GameData = {
         "anviltouch",
         "fastsmith",
         "anviltouch",
-        "todo",
-        "todo",
+        "bettercasting",
+        "octecsvision",
       ],
     },
     {
       id: "stonemason",
       name: "Stonemason",
       primaryStat1: "str",
-      primaryStat2: "end",
+      primaryStat2: "spd",
       secondaryStat: "dex",
       perks: [
         {
@@ -1274,6 +1421,50 @@ export const ATITD_DATA: GameData = {
         "morelimestone",
         "easyclinkervat",
         "offlinestones",
+      ],
+    },
+    {
+      id: "vintner",
+      name: "Vintner",
+      primaryStat1: "con",
+      primaryStat2: "spd",
+      secondaryStat: "end",
+      perks: [
+        {
+          id: "moregrapes",
+          name: "Increased Grape Harvest",
+          description: "Increases the grapes generated per harvest by 4",
+        },
+        {
+          id: "longergrapes",
+          name: "Fresher Grapes",
+          description: "Grapes take longer to go bad",
+        },
+        {
+          id: "cheaperbarrel",
+          name: "Over A Barrel",
+          description: "Cheaper barrel construction",
+        },
+        {
+          id: "fastertending",
+          name: "Tending Towards Success",
+          description: "Faster tending times",
+        },
+        {
+          id: "morewine",
+          name: "All Bottled Up",
+          description: "Less grapes required to bottle and cask",
+        },
+      ],
+      perkOrder: [
+        "moregrapes",
+        "longergrapes",
+        "cheaperbarrel",
+        "moregrapes",
+        "longergrapes",
+        "cheaperbarrel",
+        "fastertending",
+        "morewine",
       ],
     },
     {
