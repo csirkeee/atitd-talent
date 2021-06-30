@@ -39,6 +39,14 @@ export class PlayerDataService {
     ).subscribe();
   }
 
+  public getPlayerDataState(): PlayerData {
+    return this.playerData.getValue();
+  }
+
+  public setPlayerDataState(data: PlayerData): void {
+    this.playerData.next(data);
+  }
+
   public getPass(test: string): Observable<string[]> {
     return this.playerData.pipe(map((data) => {
       for(const pass of data.passes) {

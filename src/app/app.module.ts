@@ -12,6 +12,7 @@ import { StatsComponent } from "./stats/stats.component";
 import { TestDetailComponent } from "./test-detail/test-detail.component";
 import { TestExtraComponent } from "./test-extra/test-extra.component";
 import { TestsComponent } from "./tests/tests.component";
+import { ImportExportPanelComponent } from './import-export-panel/import-export-panel.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TestsComponent } from "./tests/tests.component";
     SpecializationDetailComponent,
     SpecializationAvailableComponent,
     TestExtraComponent,
+    ImportExportPanelComponent,
   ],
   imports: [
     BrowserModule,

@@ -34,6 +34,7 @@ export class TestDetailComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.subscriptions.push(this.playerDataService.getPass(this.testData.id).subscribe((passes) => {
+      this.checked.clear();
       passes.forEach((pass) => this.checked.add(pass));
       this.recalculate();
     }));
