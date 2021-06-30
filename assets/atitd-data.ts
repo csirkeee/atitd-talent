@@ -526,7 +526,7 @@ export const ATITD_DATA: GameData = {
       id: "archaeologist",
       name: "Archaeologist",
       imageLocation: "assets\\images\\tests\\Human_Body_Test_Icons_Archeologist.png",
-      type: TestType.SERIAL,
+      type: TestType.RANDOM_ORDER,
       tasks: [
         {
           id: "buildit",
